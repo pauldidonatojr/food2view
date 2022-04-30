@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import { useSideContext } from '../context/sidebar_context'
 import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
-import { links, social } from '../data/link_data'
+import { links, social } from '../utils/constants'
 
 const SocialButtons = () => {
 
@@ -93,7 +93,7 @@ grid-gap: 5rem;
 
     }
     .social-icons a {
-      margin: 0 0.9rem;
+      margin: 0 0.5rem;
       color: black;
       transition: var(--transition);
 

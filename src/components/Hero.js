@@ -6,9 +6,16 @@ import Main_Carousel from './Main_Carousel.js'
 const Hero = () => {
  return (
   <Wrapper>
-   <main></main>
-   <main></main>
-   <main></main>
+   <div className="form-control">
+    <input
+     type="text"
+     name="text"
+     placeholder="search"
+     className="search-input"
+     value="search"
+     //   onChange={updateFilters}
+    />
+   </div>
    <main></main>
   </Wrapper>
  )
@@ -19,7 +26,6 @@ const Wrapper = styled.section`
  align-items: center;
  justify-content: center;
  grid-gap: 3rem;
- background-color: red;
  /* In Size Order */
 
  /* Extra small devices (phones, 600px and down) */
@@ -34,10 +40,15 @@ const Wrapper = styled.section`
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
   padding: 3rem;
-  main {
+
+
+   main {
    height: 50vh;
    width: 45vh;
    background-color: green;
+  }
+  .search-input {
+   width: 100%;
   }
  }
  /* Medium devices *landscape tablets, 768px and up) */

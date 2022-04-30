@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { links } from '../utils/constants'
+import { links, social } from '../utils/constants'
 import { useSideContext } from '../context/sidebar_context'
 
 const getStorageTheme = () => {
@@ -66,17 +66,6 @@ export default function Navbar() {
      )} */}
     </div>
 
-             <div className="form-control">
-     <input
-      type="text"
-      name="text"
-      placeholder="search"
-      className="search-input"
-      value='search'
-    //   onChange={updateFilters}
-                     />
-
-    </div>
     {/* {myUser ? (
      <button
       type="button"
@@ -99,7 +88,16 @@ export default function Navbar() {
       </div>
      </button>
     )} */}
-
+    <ul className="social-icons">
+     {social.map((socialIcon) => {
+      const { id, url, icon } = socialIcon
+      return (
+       <li key={id} >
+        <a href={url}>{icon}</a>
+       </li>
+      )
+     })}
+    </ul>
     <ul className="nav-links">
      {links.map((link) => {
       const { id, text, url } = link
@@ -119,8 +117,12 @@ const NavContainer = styled.nav`
  height: 5rem;
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: space-between;
  box-shadow: 0 0.0.5em;
+
+.social-icons {
+    display: none;
+}
 .faIcon:hover {
     opacity: 0.3;
 }
@@ -192,6 +194,18 @@ const NavContainer = styled.nav`
   .search-input {
       width: 30rem;
   }
+   .social-icons {
+       display: flex;
+       li {
+           margin-left: 1rem;
+       }
+   }
+   .social-icons a {
+       color: var(--clr-primary-3)
+   }
+   .social-icons a:hover {
+       color: grey;
+   }
   .nav-links {
    display: flex;
    justify-content: center;
