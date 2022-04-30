@@ -19,9 +19,9 @@ const Wrapper = styled.section`
  justify-content: center;
 
  main {
-  margin-top: 5rem;
-  height: 55vh;
-  width: 55vh;
+  margin-top: 2rem;
+  height: 45vh;
+  width: 40vh;
   background-color: blue;
  }
 `
