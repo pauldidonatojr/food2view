@@ -7,24 +7,26 @@ const Hero = () => {
  return (
   <Wrapper>
    <main></main>
+   <main></main>
+   <main></main>
+   <main></main>
   </Wrapper>
  )
 }
 
 const Wrapper = styled.section`
- padding: 1rem;
  height: 100%;
  min-height: 30rem;
  display: grid;
  align-items: center;
  justify-content: center;
-
+ grid-gap: 2rem;
  /* In Size Order */
 
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
+  padding: 2rem;
   main {
-   margin-top: 0.5rem;
    height: 45vh;
    width: 40vh;
    background-color: blue;
@@ -32,35 +34,32 @@ const Wrapper = styled.section`
  }
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
+  padding: 3rem;
   main {
-   margin-top: 0.5rem;
-   height: 45vh;
-   width: 40vh;
+   height: 50vh;
+   width: 45vh;
    background-color: green;
   }
  }
-/* Medium devices *landscape tablets, 768px and up) */
+ /* Medium devices *landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
   main {
-   margin-top: 0.5rem;
    height: 45vh;
    width: 40vh;
    background-color: orange;
   }
  }
-/* Large devices (lapto/desktops, 992px and up) */
+ /* Large devices (lapto/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
   main {
-   margin-top: 0.5rem;
    height: 45vh;
    width: 40vh;
    background-color: purple;
   }
  }
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
   main {
-   margin-top: 0.5rem;
    height: 45vh;
    width: 40vh;
    background-color: red;
