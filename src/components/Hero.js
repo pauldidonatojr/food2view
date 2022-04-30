@@ -1,0 +1,91 @@
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import heroBcg from '../assets/hero-bcg.jpeg'
+import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+// import MainCarousel from './Main_Carousel.js'
+const Hero = () => {
+ return (
+  <Wrapper>
+   <article className="content">
+    {/* <MainCarousel /> */}
+   </article>
+   {/* <article className="img-container-1">
+    <img src={heroBcg} alt="nice" className="main-img" />
+    <img src={heroBcg2} alt="nice2" className="accent-img" />
+   </article> */}
+  </Wrapper>
+ )
+}
+
+const Wrapper = styled.section`
+ height: 80vh;
+ display: grid;
+ place-items: center;
+ margin: 0 auto;
+ max-width: var(--max-width);
+ padding: 2rem;
+ .content {
+  padding: 0.08vh;
+  height: 70vh;
+  margin-top: 1rem;
+ }
+
+ .img-container-1 {
+  display: none;
+ }
+
+ p {
+  line-height: 2;
+  max-width: 45em;
+  margin-bottom: 2rem;
+  color: var(--clr-grey-5);
+  font-size: 1rem;
+ }
+ @media (min-width: 992px) {
+  height: 80vh;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  h1 {
+   margin-bottom: 2rem;
+  }
+  p {
+   font-size: 1.25rem;
+  }
+  .hero-btn {
+   padding: 0.75rem 1.5rem;
+   font-size: 1rem;
+  }
+  .img-container-1 {
+   display: block;
+   position: relative;
+  }
+  .main-img {
+   width: 100%;
+   height: 550px;
+   position: relative;
+   border-radius: var(--radius);
+   display: block;
+   object-fit: cover;
+  }
+  .accent-img {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 250px;
+   transform: translateX(-50%);
+   border-radius: var(--radius);
+  }
+  .img-container-1::before {
+   content: '';
+   position: absolute;
+   width: 10%;
+   height: 80%;
+   background: var(--clr-primary-9);
+   bottom: 0%;
+   left: -8%;
+   border-radius: var(--radius);
+  }
+ }
+`
+
+export default Hero
