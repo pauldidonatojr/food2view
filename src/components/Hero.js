@@ -15,12 +15,11 @@ const Hero = () => {
 }
 
 const Wrapper = styled.section`
- height: 100%;
- min-height: 30rem;
  display: grid;
  align-items: center;
  justify-content: center;
- grid-gap: 2rem;
+ grid-gap: 3rem;
+ background-color: red;
  /* In Size Order */
 
  /* Extra small devices (phones, 600px and down) */
