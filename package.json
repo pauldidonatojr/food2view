@@ -14,7 +14,6 @@
     "airtable-node": "^0.1.20",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
-    "netlify": "^11.0.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.1",
     "react": "^17.0.2",
@@ -27,9 +26,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "netlify": "ntl dev"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "netlify": "^11.0.1"
   }
 }
