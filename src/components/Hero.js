@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
-import Main_Carousel from './Main_Carousel.js'
+
+const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
+ const [products, setProducts] = useState([])
+ const fetchData = async () => {
+  try {
+   const { data } = await axios.get(url)
+   setProducts(data)
+  } catch (error) {}
+ }
+
+ useEffect(() => {
+  fetchData()
+ }, [])
+
  return (
   <Wrapper>
    <div className="form-control">
@@ -16,24 +28,48 @@ const Hero = () => {
      //   onChange={updateFilters}
     />
    </div>
-   <div className="container">
-    <div className="card">
-      <div class="imgBx">
-      <img src="https://assets.codepen.io/4164355/shoes.png" alt="code" />
-     </div>
-     <div class="contentBx">
-      <h2>Nike Shoes</h2>
-
-      <div class="color">
-       <h3>Color :</h3>
-       <span></span>
-       <span></span>
-       <span></span>
+   {/* {products.map((product) => {
+    const { id, name, url, category, location } = product
+    return (
+     <article className="product" key={id}>
+      <img src={url} alt={name} />
+      <div className="info">
+       <h5> {name}</h5>
+       <h5> {category}</h5>
+       <h5> {location}</h5>
       </div>
-      <a href="/">Buy Now</a>
+     </article>
+    )
+   })} */}
+
+   {products.map((product) => {
+    const { id, name, url, category, location } = product
+    return (
+     <div className="container" key={id}>
+      <div
+       className="card"
+       style={{
+        background: `url(${url}) no-repeat center center`,
+        backgroundSize: `cover`,
+       }}
+      >
+       {/* <div className="imgBx">
+        <img src={url} alt={name} />
+       </div> */}
+
+       <div className="contentBx">
+        <h1>{name}</h1>
+
+        <div className="color">
+         <h3>{category}</h3>
+         <h3>{location}</h3>
+         <a href="/">View</a>
+        </div>
+       </div>
+      </div>
      </div>
-    </div>
-   </div>
+    )
+   })}
   </Wrapper>
  )
 }
@@ -44,14 +80,16 @@ const Wrapper = styled.div`
  justify-content: center;
  grid-gap: 3rem;
  /* In Size Order */
+
  .container {
   .card {
    position: relative;
    width: 100%;
    height: 100%;
-   background: #232323;
    border-radius: 20px;
    overflow: hidden;
+   display: grid;
+   align-items: center;
   }
   .card:before {
    content: '';
@@ -60,22 +98,19 @@ const Wrapper = styled.div`
    left: 0;
    width: 100%;
    height: 100%;
-   background: black;
 
    transition: 0.5s ease-in-out;
   }
   .card:after {
-   content: 'Nike';
    position: absolute;
-   top: 30%;
+   top: 20%;
    left: -20%;
    font-size: 12em;
    font-weight: 800;
    font-style: italic;
-   color: rgba(255, 255, 25, 0.05);
+   background: blue;
   }
   .card .imgBx {
-   position: absolute;
    top: 50%;
    transform: translateY(-50%);
    z-index: 10000;
@@ -84,34 +119,51 @@ const Wrapper = styled.div`
    transition: 0.5s;
   }
   .card:hover .imgBx {
-   top: 0%;
    transform: translateY(0%);
   }
   .card .imgBx img {
    position: fixed;
    top: 50%;
    left: 50%;
-   transform: translate(-50%, -50%) rotate(-25deg);
+   transform: translate(-50%, -50%);
    width: 270px;
   }
   .card .contentBx {
    position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 100px;
+   width: 28vh;
+   height: 250px;
+   margin-bottom: 2rem;
    text-align: center;
    transition: 1s;
    z-index: 10;
+   background-color: var(--midnight);
+   border-radius: 10%;
+   margin-left: 6rem;
+   font-family: roboto;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .card:hover .contentBx {
-   height: 210px;
+   height: 100%;
+   display: grid;
+   grid-gap: 3rem;
+   width: 20vh;
+
+   border-radius: 0;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
   }
-  .card .contentBx h2 {
+  .card .contentBx h1 {
    position: relative;
    font-weight: 600;
    letter-spacing: 1px;
-   color: #fff;
+   border-radius: 20%;
+   color: var(--mainBlack);
    margin: 0;
+   margin-bottom: 2rem;
+  }
+
+  .color {
+   margin-top: 1rem;
   }
   .card .contentBx .size,
   .container .card .contentBx .color {
@@ -159,23 +211,10 @@ const Wrapper = styled.div`
    border-radius: 4px;
    cursor: pointer;
   }
-  .card .contentBx .color span {
-   width: 20px;
-   height: 20px;
-   background: #ff0;
-   border-radius: 50%;
-   margin: 0 5px;
-   cursor: pointer;
+  h3 {
+   color: var(--superblue);
   }
-  .card .contentBx .color span:nth-child(2) {
-   background: #9bdc28;
-  }
-  .card .contentBx .color span:nth-child(3) {
-   background: #03a9f4;
-  }
-  .card .contentBx .color span:nth-child(4) {
-   background: #e91e63;
-  }
+
   .card .contentBx a {
    display: inline-block;
    padding: 10px 20px;
@@ -226,7 +265,7 @@ const Wrapper = styled.div`
  /* Large devices (lapto/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
   .container {
-   height: 60vh;
+   height: 55vh;
    width: 55vh;
   }
  }
