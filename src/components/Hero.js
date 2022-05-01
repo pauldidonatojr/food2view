@@ -243,6 +243,7 @@ const Wrapper = styled.div`
   }
 
   .card .contentBx {
+   margin-left: 3rem;
   }
  }
  /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -277,7 +278,7 @@ const Wrapper = styled.div`
    width: 55vh;
   }
   .card .contentBx {
-   margin-left: 5rem;
+   margin-left: 7rem;
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -286,7 +287,7 @@ const Wrapper = styled.div`
    height: 65vh;
    width: 65vh;
   }
-  margin-left: 7rem;
+  margin-left: 10rem;
  }
 `
 
