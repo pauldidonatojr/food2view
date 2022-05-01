@@ -276,7 +276,7 @@ const Wrapper = styled.div`
   .container {
    height: 55vh;
    width: 55vh;
-   margin-right: 10rem;
+   margin-right: 14rem;
   }
   .search-input {
    width: 25rem;
