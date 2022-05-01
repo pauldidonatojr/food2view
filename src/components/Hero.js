@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useModalContext } from '../context/modal_context'
+import { FaCamera } from 'react-icons/fa'
+
 import axios from 'axios'
 import styled from 'styled-components'
 
 const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
+ const { isModalOpen, closeModal } = useModalContext()
+
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -41,7 +46,16 @@ const Hero = () => {
      </article>
     )
    })} */}
-
+   <div
+    className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
+   >
+    <div className="modal-container">
+     <h3>modal content</h3>
+     <button className="close-modal-btn" onClick={closeModal}>
+      <FaCamera></FaCamera>
+     </button>
+    </div>
+   </div>
    {products.map((product) => {
     const { id, name, url, category, location } = product
     return (
@@ -80,7 +94,33 @@ const Wrapper = styled.div`
  justify-content: center;
  grid-gap: 3rem;
  /* In Size Order */
+ .show-modal {
+  visibility: visible;
+  z-index: 100000000;
+ }
 
+ .modal-container {
+  background: black;
+  border-radius: var(--radius);
+  width: 90vw;
+  height: 30vh;
+  max-width: var(--fixed-width);
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+ }
+
+ .close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-red-dark);
+  cursor: pointer;
+ }
  .container {
   .card {
    position: relative;
@@ -140,6 +180,7 @@ const Wrapper = styled.div`
    border-radius: 10%;
    font-family: roboto;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   overflow-wrap: break-word;
   }
   .card:hover .contentBx {
    height: 100%;

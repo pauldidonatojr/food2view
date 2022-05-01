@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaCamera} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { links, social } from '../utils/constants'
 import { useSideContext } from '../context/sidebar_context'
-
+import { useModalContext } from '../context/modal_context'
 const getStorageTheme = () => {
  let theme = 'light-theme'
  if (localStorage.getItem('theme')) {
@@ -15,6 +15,7 @@ const getStorageTheme = () => {
 
 export default function Navbar() {
  const [theme, setTheme] = useState(getStorageTheme())
+  const { openModal } = useModalContext()
 
  const { openSidebar } = useSideContext()
 
@@ -66,6 +67,10 @@ export default function Navbar() {
      )} */}
     </div>
 
+    <button type="button" className="camera-toggle" onClick={openModal}>
+     <FaCamera />
+    </button>
+    
     {/* {myUser ? (
      <button
       type="button"
@@ -92,7 +97,7 @@ export default function Navbar() {
      {social.map((socialIcon) => {
       const { id, url, icon } = socialIcon
       return (
-       <li key={id} >
+       <li key={id}>
         <a href={url}>{icon}</a>
        </li>
       )
@@ -155,7 +160,15 @@ const NavContainer = styled.nav`
    font-size: 2rem;
   }
  }
-
+  .camera-toggle {
+      background: transparent;
+      border: transparent;
+      color: var(--cltr-primary-5);
+      cursor: pointer;
+      svg {
+          font-size: 2rem;
+      }
+  }
 
  .nav-links {
   display: none;
@@ -186,10 +199,27 @@ const NavContainer = styled.nav`
   .nav-toggle {
    display: none;
   }
+  .camera-toggle {
+     display: none;
+  }
+
+.modal-overlay {
+    display: none;
+}
+.show-modal {
+    display: none;
+}
+.modal-container {
+    display: none;
+}
+.close-modal-btn {
+    display: none;
+}
   .nav-center {
    display: grid;
    grid-template-columns: auto 1fr auto;
    align-items: center;
+   justify-content: center;
   }
   .search-input {
       width: 30rem;

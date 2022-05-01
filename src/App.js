@@ -3,10 +3,13 @@ import { Home, About, ErrorPage } from './pages/Index'
 import { Navbar, Sidebar, Footer } from './components'
 
 function App() {
- return (
+    return (
+
+
   <Router>
-   <Navbar />
-   <Sidebar />
+            <Navbar />
+
+         <Sidebar />
    <Switch>
     <Route exact path="/">
      <Home />

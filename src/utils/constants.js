@@ -2,23 +2,18 @@ import React from 'react'
 import { FaBehance, FaFacebook, FaYoutube, FaTwitter, FaGoogle} from 'react-icons/fa'
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
 export const links = [
- {
+{
   id: 1,
-  text: 'restaurants',
-  url: '/bio',
- },
- {
-  id: 2,
   text: 'About',
   url: '/articles',
  },
  {
-  id: 3,
+  id: 2,
   text: 'media',
   url: '/videos',
  },
  {
-  id: 4,
+  id: 3,
   text: 'contact',
   url: '/contact',
  },
