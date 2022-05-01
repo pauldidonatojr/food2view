@@ -156,7 +156,7 @@ const Wrapper = styled.div`
    font-weight: 600;
    letter-spacing: 1px;
    border-radius: 20%;
-   color: white;
+   color: var(--mainWhite);
    margin: 0;
    margin-bottom: 2rem;
   }
@@ -211,7 +211,7 @@ const Wrapper = styled.div`
    cursor: pointer;
   }
   h3 {
-   color: var(--superblue);
+   color: var(--offWhite);
   }
 
   .card .contentBx a {
@@ -278,7 +278,7 @@ const Wrapper = styled.div`
    width: 55vh;
   }
   .card .contentBx {
-   margin-left: 7rem;
+   margin-left: 10rem;
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -287,7 +287,7 @@ const Wrapper = styled.div`
    height: 65vh;
    width: 65vh;
   }
-  margin-left: 10rem;
+  margin-left: 12rem;
  }
 `
 
