@@ -16,9 +16,10 @@ const Sidebar = () => {
  return (
   <SidebarContainer>
    <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
-    <Link to="/" className="linksclass" onClick={closeSidebar}>
-     <img src={food2view} className="logo" alt="elpawl" />{' '}
-    </Link>
+
+     <Link to="/" className="linksclass" onClick={closeSidebar}>
+      <img src={food2view} className="logo" alt="elpawl" />{' '}
+     </Link>
 
     <SocialButtons />
 
@@ -49,6 +50,8 @@ const Sidebar = () => {
 
 const SidebarContainer = styled.div`
  text-align: center;
+
+
  .linksclass {
   display: grid;
   justify-content: center;
@@ -57,16 +60,7 @@ const SidebarContainer = styled.div`
   display: grid;
   justify-content: center;
  }
- .close-btn {
-  font-size: 2rem;
-  background: transparent;
-  border-color: transparent;
-  color: var(--clr-primary-5);
-  transition: var(--transition);
-  cursor: pointer;
-  color: var(--clr-red-dark);
-  margin-top: 0.2rem;
- }
+
  .close-btn:hover {
   color: var(--clr-red-light);
  }
