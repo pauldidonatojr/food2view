@@ -279,7 +279,7 @@ const Wrapper = styled.div`
    margin-right: 10rem;
   }
   .search-input {
-   width: 30rem;
+   width: 25rem;
   }
   .card .contentBx {
    margin-left: 7rem;
