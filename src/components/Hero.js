@@ -275,17 +275,18 @@ const Wrapper = styled.div`
  @media only screen and (min-width: 992px) {
   .container {
    height: 55vh;
-   width: 55vh;
+   width: 60vh;
   }
   .card .contentBx {
-   margin-left: 10rem;
+   margin-left: 9rem;
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
   .container {
    height: 65vh;
-   width: 65vh;
+   width: 60vh;
+   margin-right: 2rem;
   }
   margin-left: 12rem;
  }
