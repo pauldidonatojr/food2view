@@ -275,14 +275,14 @@ const Wrapper = styled.div`
  @media only screen and (min-width: 992px) {
   .container {
    height: 55vh;
-   width: 60vh;
-   margin-right: 8rem;
+   width: 55vh;
+   margin-right: 10rem;
   }
   .search-input {
-   width: 34rem;
+   width: 30rem;
   }
   .card .contentBx {
-   margin-left: 8rem;
+   margin-left: 7rem;
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
