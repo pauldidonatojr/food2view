@@ -145,7 +145,7 @@ const Wrapper = styled.div`
   .card:hover .contentBx {
    height: 100%;
    display: grid;
-   grid-gap: 3rem;
+   grid-gap: 1.5rem;
    width: 20vh;
 
    border-radius: 0;
