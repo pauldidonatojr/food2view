@@ -138,7 +138,7 @@ const Wrapper = styled.div`
    z-index: 10;
    background-color: var(--midnight);
    border-radius: 10%;
-   margin-left: 6rem;
+   margin-left: 4rem;
    font-family: roboto;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
