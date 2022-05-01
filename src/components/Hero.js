@@ -276,10 +276,10 @@ const Wrapper = styled.div`
   .container {
    height: 55vh;
    width: 55vh;
-   margin-right: 14rem;
+   margin-right: 20rem;
   }
   .search-input {
-   width: 25rem;
+   width: 28rem;
   }
   .card .contentBx {
    margin-left: 7rem;
