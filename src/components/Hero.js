@@ -276,9 +276,13 @@ const Wrapper = styled.div`
   .container {
    height: 55vh;
    width: 60vh;
+   margin-right: 8rem;
+  }
+  .search-input {
+   width: 34rem;
   }
   .card .contentBx {
-   margin-left: 9rem;
+   margin-left: 8rem;
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -286,7 +290,7 @@ const Wrapper = styled.div`
   .container {
    height: 65vh;
    width: 60vh;
-   margin-right: 2rem;
+   margin-right: 8rem;
   }
   margin-left: 12rem;
  }
