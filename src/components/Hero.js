@@ -136,7 +136,7 @@ const Wrapper = styled.div`
    text-align: center;
    transition: 1s;
    z-index: 10;
-   background-color: var(--midnight);
+   background-color: var(--mainBlack);
    border-radius: 10%;
    margin-left: 3rem;
    font-family: roboto;
@@ -157,7 +157,7 @@ const Wrapper = styled.div`
    font-weight: 600;
    letter-spacing: 1px;
    border-radius: 20%;
-   color: var(--mainBlack);
+   color: white;
    margin: 0;
    margin-bottom: 2rem;
   }
