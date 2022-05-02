@@ -67,9 +67,8 @@ const Hero = () => {
      />
 
      <a href={data}>
-                     <p>{data}</p>
-                     hi
-     </a>
+    <p>{data}</p>
+    </a>
 
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
@@ -349,7 +348,7 @@ const Wrapper = styled.div`
  @media only screen and (min-width: 992px) {
   .container {
    height: 55vh;
-   width: 55vh;
+   width: 50vh;
    margin-right: 24rem;
   }
   .search-input {
