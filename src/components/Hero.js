@@ -11,7 +11,24 @@ const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
  const [data, setData] = useState(null)
- const [error, setError] = useState(null)
+    const [error, setError] = useState(null)
+    const [qrscan, setQrscan] = useState('No result')
+    const handleScan = (result, error) => {
+     if (result) {
+      if (result?.text !== qrscan) {
+       setQrscan(result?.text)
+      } else {
+       console.log('same')
+      }
+     }
+     if (error) {
+      // console.error(error);
+     }
+    }
+
+  const constraints = {
+   facingMode: 'environment',
+  }
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -52,7 +69,7 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     <QrReader
+     {/* <QrReader
       onResult={(result, error) => {
        if (!!result) {
         setData(result?.text)
@@ -67,8 +84,17 @@ const Hero = () => {
 
      <a href={data}>
       <p>{data}</p>
-     </a>
+     </a> */}
 
+     <div className="qr-code">
+      <QrReader
+       delay={300}
+       onResult={handleScan}
+       style={{ height: 240, width: 320 }}
+       constraints={{ ...constraints }}
+      />
+      <h2>{qrscan}</h2>
+     </div>
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
      </button>
