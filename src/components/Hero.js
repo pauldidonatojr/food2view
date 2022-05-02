@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useModalContext } from '../context/modal_context'
 import { FaCamera } from 'react-icons/fa'
-import QrScanner from 'qr-scanner' // if installed via package and bundling with a module bundler like webpack or rollup
 import axios from 'axios'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
+import styled from 'styled-components'
+import { QrReader } from 'react-qr-reader'
 const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
-
+    const [data, setData] = useState(null)
+      const [error, setError] = useState(null)
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -50,9 +52,23 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     <div style={{ backgroundColor: 'white', padding: '5rem' }}> </div>
-     <div style={{ backgroundColor: 'white', padding: '5rem' }}></div>
-     <div style={{ backgroundColor: 'white', padding: '5rem' }}></div>
+     <QrReader
+     
+      onResult={(result, error) => {
+       if (!!result) {
+        setData(result?.text)
+       }
+
+       if (!!error) {
+        console.info(error)
+       }
+      }}
+      style={{ width: '100%' }}
+     />
+
+     <a href={data}>
+      <p>{data}</p>
+     </a>
 
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
@@ -101,11 +117,15 @@ const Wrapper = styled.div`
   visibility: visible;
   z-index: 100000000;
  }
-
+ .qr-container {
+  height: 70vh;
+  width: 50vh;
+  background: var(--mainGrey);
+ }
  .modal-container {
-  background: black;
+  background: var(--offWhite);
   border-radius: var(--radius);
-
+   margin: auto;
   width: 100%;
   height: 100%;
   max-width: var(--fixed-width);

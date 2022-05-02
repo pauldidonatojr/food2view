@@ -1,15 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home, About, ErrorPage } from './pages/Index'
-import { Navbar, Sidebar, Footer } from './components'
+import { Navbar, Sidebar, Geolocation, Footer } from './components'
 
 function App() {
-    return (
-
-
+ return (
   <Router>
-            <Navbar />
-
-         <Sidebar />
+   <Navbar />
+   <Geolocation />
+   <Sidebar />
    <Switch>
     <Route exact path="/">
      <Home />
