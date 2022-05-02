@@ -3,32 +3,27 @@ import { useModalContext } from '../context/modal_context'
 import { FaCamera } from 'react-icons/fa'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import QrReader from 'react-web-qr-reader'
 import styled from 'styled-components'
-import { QrReader } from 'react-qr-reader'
+// import { QrReader } from 'react-qr-reader'
 const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
  const [data, setData] = useState(null)
-    const [error, setError] = useState(null)
-    const [qrscan, setQrscan] = useState('No result')
-    const handleScan = (result, error) => {
-     if (result) {
-      if (result?.text !== qrscan) {
-       setQrscan(result?.text)
-      } else {
-       console.log('same')
-      }
-     }
-     if (error) {
-      // console.error(error);
-     }
-    }
+ const [result, setResult] = useState('No result')
 
-  const constraints = {
-   facingMode: 'environment',
+ const delay = 500
+ const handleScan = (result) => {
+  if (result) {
+   setResult(result)
   }
+ }
+
+ const handleError = (error) => {
+  console.log(error)
+ }
+
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -69,32 +64,9 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     {/* <QrReader
-      onResult={(result, error) => {
-       if (!!result) {
-        setData(result?.text)
-       }
+     <QrReader delay={delay} onError={handleError} onScan={handleScan} />
+     <p>{result}</p>
 
-       if (!!error) {
-        console.info(error)
-       }
-      }}
-      style={{ width: '100%' }}
-     />
-
-     <a href={data}>
-      <p>{data}</p>
-     </a> */}
-
-     <div className="qr-code">
-      <QrReader
-       delay={300}
-       onResult={handleScan}
-       style={{ height: 240, width: 320 }}
-       constraints={{ ...constraints }}
-      />
-      <h2>{qrscan}</h2>
-     </div>
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
      </button>
@@ -401,5 +373,4 @@ const Wrapper = styled.div`
   margin-left: 12rem;
  }
 `
-
 export default Hero
