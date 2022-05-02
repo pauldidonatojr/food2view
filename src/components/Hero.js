@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useModalContext } from '../context/modal_context'
 import { FaCamera } from 'react-icons/fa'
-
+import QrScanner from 'qr-scanner' // if installed via package and bundling with a module bundler like webpack or rollup
 import axios from 'axios'
 import styled from 'styled-components'
 
@@ -50,7 +50,10 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     <h3>modal content</h3>
+     <div style={{ backgroundColor: 'white', padding: '5rem' }}> </div>
+     <div style={{ backgroundColor: 'white', padding: '5rem' }}></div>
+     <div style={{ backgroundColor: 'white', padding: '5rem' }}></div>
+
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
      </button>
@@ -102,8 +105,9 @@ const Wrapper = styled.div`
  .modal-container {
   background: black;
   border-radius: var(--radius);
-  width: 90vw;
-  height: 30vh;
+
+  width: 100%;
+  height: 100%;
   max-width: var(--fixed-width);
   text-align: center;
   display: grid;
@@ -301,6 +305,10 @@ const Wrapper = styled.div`
   .card .contentBx {
    margin-left: 3rem;
   }
+  .modal-container {
+   width: 100%;
+   height: 100%;
+  }
  }
  /* Medium devices *landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
@@ -310,6 +318,10 @@ const Wrapper = styled.div`
   }
   .card .contentBx {
    margin-left: 3rem;
+  }
+  .modal-container {
+   width: 75vh;
+   height: 75vh;
   }
  }
  /* Large devices (lapto/desktops, 992px and up) */
@@ -325,6 +337,10 @@ const Wrapper = styled.div`
   .card .contentBx {
    margin-left: 7rem;
   }
+  .modal-container {
+   width: 75vh;
+   height: 75vh;
+  }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
@@ -332,6 +348,10 @@ const Wrapper = styled.div`
    height: 65vh;
    width: 60vh;
    margin-right: 8rem;
+  }
+  .modal-container {
+   width: 75vh;
+   height: 75vh;
   }
   margin-left: 12rem;
  }
