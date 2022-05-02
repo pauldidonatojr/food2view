@@ -10,8 +10,8 @@ const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
-    const [data, setData] = useState(null)
-      const [error, setError] = useState(null)
+ const [data, setData] = useState(null)
+ const [error, setError] = useState(null)
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -53,7 +53,6 @@ const Hero = () => {
    >
     <div className="modal-container">
      <QrReader
-
       onResult={(result, error) => {
        if (!!result) {
         setData(result?.text)
@@ -67,8 +66,8 @@ const Hero = () => {
      />
 
      <a href={data}>
-    <p>{data}</p>
-    </a>
+      <p>{data}</p>
+     </a>
 
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
@@ -125,7 +124,7 @@ const Wrapper = styled.div`
  .modal-container {
   background: var(--offWhite);
   border-radius: var(--radius);
-   margin: auto;
+  margin: auto;
   width: 100%;
   height: 100%;
   max-width: var(--fixed-width);
@@ -352,7 +351,7 @@ const Wrapper = styled.div`
    margin-right: 24rem;
   }
   .search-input {
-   width: 26rem;
+   width: 28rem;
   }
   .card .contentBx {
    margin-left: 7rem;
