@@ -53,7 +53,7 @@ const Hero = () => {
    >
     <div className="modal-container">
      <QrReader
-     
+
       onResult={(result, error) => {
        if (!!result) {
         setData(result?.text)
@@ -67,7 +67,8 @@ const Hero = () => {
      />
 
      <a href={data}>
-      <p>{data}</p>
+                     <p>{data}</p>
+                     hi
      </a>
 
      <button className="close-modal-btn" onClick={closeModal}>
