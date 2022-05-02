@@ -13,7 +13,6 @@ const Hero = () => {
  const [data, setData] = useState(null)
  const [result, setResult] = useState('No result')
 
- const delay = 500
  const handleScan = (result) => {
   if (result) {
    setResult(result)
@@ -64,7 +63,7 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     <QrReader delay={delay} onError={handleError} onScan={handleScan} />
+     <QrReader onError={handleError} onScan={handleScan} />
      <p>{result}</p>
 
      <button className="close-modal-btn" onClick={closeModal}>
