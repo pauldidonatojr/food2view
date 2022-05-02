@@ -6,7 +6,7 @@ function App() {
  return (
   <Router>
    <Navbar />
-   {/* <Geolocation /> */}
+   <Geolocation />
    <Sidebar />
    <Switch>
     <Route exact path="/">
