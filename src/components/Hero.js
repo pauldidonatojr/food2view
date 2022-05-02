@@ -10,18 +10,6 @@ const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
- const [data, setData] = useState(null)
- const [result, setResult] = useState('No result')
-
- const handleScan = (result) => {
-  if (result) {
-   setResult(result)
-  }
- }
-
- const handleError = (error) => {
-  console.log(error)
- }
 
  const fetchData = async () => {
   try {
@@ -63,9 +51,6 @@ const Hero = () => {
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
     <div className="modal-container">
-     <QrReader onError={handleError} onScan={handleScan} />
-     <p>{result}</p>
-
      <button className="close-modal-btn" onClick={closeModal}>
       <FaCamera></FaCamera>
      </button>
