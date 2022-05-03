@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home, About, ErrorPage } from './pages/Index'
-import { Navbar, Sidebar, Geolocation, Geoloc, Footer } from './components'
+import { Navbar, Sidebar, Geolocation, Footer } from './components'
 
 function App() {
  return (
   <Router>
    <Navbar />
-   <Geolocation />
-   <Geoloc />
+
    <Sidebar />
    <Switch>
     <Route exact path="/">
