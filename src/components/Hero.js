@@ -268,7 +268,6 @@ const Wrapper = styled.div`
   .container .contentBx {
    height: 30vh;
    width: 30vh;
-   background-color: blue;
   }
   .card .contentBx p {
    font-size: 2.2rem;
@@ -293,7 +292,6 @@ const Wrapper = styled.div`
   .container .contentBx {
    height: 32vh;
    width: 32vh;
-   background-color: purple;
   }
   .card .contentBx p {
    font-size: 2.5rem;
@@ -360,7 +358,6 @@ const Wrapper = styled.div`
   .container .contentBx {
    height: 40vh;
    width: 40vh;
-   background-color: darkgreen;
   }
   .card .contentBx p {
    font-size: 2.7rem;
