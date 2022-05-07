@@ -4,12 +4,13 @@ import { FaCamera } from 'react-icons/fa'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Card, Input } from 'semantic-ui-react'
 // import { QrReader } from 'react-qr-reader'
 const url = 'https://temp-server.netlify.app/api/3-airtable'
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
-
+ const [searchInput, setSearchInput] = useState('')
  const fetchData = async () => {
   try {
    const { data } = await axios.get(url)
@@ -33,6 +34,11 @@ const Hero = () => {
      //   onChange={updateFilters}
     />
    </div>
+   {/* <Input
+    icon="search"
+    placeholder="Search..."
+    onChange={() => searchItems()}
+   /> */}
    {/* {products.map((product) => {
     const { id, name, url, category, location } = product
     return (
