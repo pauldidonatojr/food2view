@@ -55,14 +55,14 @@ const Hero = () => {
         backgroundSize: `cover`,
        }}
       >
-       <div className="contentBx" style={{ backgroundColor: 'purple' }}>
+       <div className="contentBx" >
         <div className="content-title" style={{ padding: '0.25rem' }}>
-         <h1>{name}</h1>
+         <p>{name}</p>
         </div>
 
-        <div className="color" style={{  }}>
-         <h3>{category}</h3>
-         <h3>{location}</h3>
+        <div className="color" >
+         <p>{category}</p>
+         <p>{location}</p>
          <a href="/">View</a>
         </div>
        </div>
@@ -80,7 +80,7 @@ const Wrapper = styled.div`
  justify-content: center;
  width: 100%;
  height: 100%;
- grid-gap: 1rem;
+ grid-gap: 3rem;
  /* In Size Order */
  .show-modal {
   visibility: visible;
@@ -125,7 +125,6 @@ const Wrapper = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-
   }
   .card:before {
    content: '';
@@ -141,16 +140,16 @@ const Wrapper = styled.div`
    position: absolute;
    top: 20%;
    left: -20%;
-   font-size: 12em;
-   font-weight: 800;
+   /* font-size: 12em;
+   font-weight: 800; */
    font-style: italic;
    background: blue;
   }
 
   .contentBx {
    position: absolute;
-        height: 30vh;
-        width: 30vh;
+   height: 30vh;
+   width: 30vh;
    margin-bottom: 2rem;
    text-align: center;
    transition: 1s;
@@ -168,25 +167,21 @@ const Wrapper = styled.div`
    height: 100%;
    display: grid;
    grid-gap: 1.5rem;
-   width: 20vh;
+   width: 22vh;
 
    border-radius: 0;
    margin-bottom: 0rem;
    margin-left: 0rem;
   }
-  .card .contentBx h1 {
+  .card .contentBx p {
    position: relative;
    font-weight: 600;
    letter-spacing: 1px;
    border-radius: 20%;
    color: var(--mainWhite);
    margin: 0;
-   margin-bottom: 2rem;
   }
 
-  .color {
-   margin-top: 1rem;
-  }
   .size,
   .container .card .contentBx .color {
    display: flex;
@@ -257,6 +252,12 @@ const Wrapper = styled.div`
    transition-delay: 0.75s;
   }
  }
+ .card .contentBx p {
+  font-size: 2rem;
+ }
+ .contentBx .color p {
+  font-size: 1.5rem;
+ }
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
   padding: 2rem;
@@ -264,54 +265,108 @@ const Wrapper = styled.div`
    height: 45vh;
    width: 40vh;
   }
+  .container .contentBx {
+   height: 30vh;
+   width: 30vh;
+   background-color: blue;
+  }
+  .card .contentBx p {
+   font-size: 2.2rem;
+  }
+  .contentBx .color p {
+   font-size: 1.4rem;
+  }
  }
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
   padding: 3rem;
 
   .container {
-   height: 55vh;
-   width: 50vh;
+   height: 50vh;
+   width: 45vh;
   }
 
   .modal-container {
    width: 100%;
    height: 100%;
   }
+  .container .contentBx {
+   height: 32vh;
+   width: 32vh;
+   background-color: purple;
+  }
+  .card .contentBx p {
+   font-size: 2.5rem;
+  }
+  .contentBx .color p {
+   font-size: 1.5rem;
+  }
  }
  /* Medium devices *landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
   .container {
-   height: 50vh;
-   width: 40vh;
+   height: 53vh;
+   width: 48vh;
   }
 
   .modal-container {
    width: 75vh;
    height: 75vh;
+  }
+  .container .contentBx {
+   height: 35vh;
+   width: 35vh;
+  }
+  .card .contentBx p {
+   font-size: 2.3rem;
+  }
+  .contentBx .color p {
+   font-size: 1.5rem;
   }
  }
  /* Large devices (lapto/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
   .container {
-   height: 55vh;
-   width: 45vh;
+   height: 58vh;
+   width: 52vh;
   }
 
   .modal-container {
    width: 75vh;
    height: 75vh;
   }
+  .container .contentBx {
+   height: 40vh;
+   width: 40vh;
+
+  }
+  .card .contentBx p {
+   font-size: 2.4rem;
+  }
+  .contentBx .color p {
+   font-size: 1.6rem;
+  }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
   .container {
-   height: 55vh;
-   width: 50vh;
+   height: 62vh;
+   width: 55vh;
   }
   .modal-container {
    width: 75vh;
    height: 75vh;
+  }
+  .container .contentBx {
+   height: 40vh;
+   width: 40vh;
+   background-color: darkgreen;
+  }
+  .card .contentBx p {
+   font-size: 2.7rem;
+  }
+  .contentBx .color p {
+   font-size: 1.6rem;
   }
  }
 `
