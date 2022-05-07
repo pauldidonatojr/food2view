@@ -31,27 +31,10 @@ const Hero = () => {
      placeholder="search"
      className="search-input"
      value="search"
-     //   onChange={updateFilters}
+
     />
    </div>
-   {/* <Input
-    icon="search"
-    placeholder="Search..."
-    onChange={() => searchItems()}
-   /> */}
-   {/* {products.map((product) => {
-    const { id, name, url, category, location } = product
-    return (
-     <article className="product" key={id}>
-      <img src={url} alt={name} />
-      <div className="info">
-       <h5> {name}</h5>
-       <h5> {category}</h5>
-       <h5> {location}</h5>
-      </div>
-     </article>
-    )
-   })} */}
+
    <div
     className={`${isModalOpen ? 'modal-overlay show-modal' : 'modal-overlay'}`}
    >
@@ -72,14 +55,12 @@ const Hero = () => {
         backgroundSize: `cover`,
        }}
       >
-       {/* <div className="imgBx">
-        <img src={url} alt={name} />
-       </div> */}
+       <div className="contentBx" style={{ backgroundColor: 'purple' }}>
+        <div className="content-title" style={{ padding: '0.25rem' }}>
+         <h1>{name}</h1>
+        </div>
 
-       <div className="contentBx">
-        <h1>{name}</h1>
-
-        <div className="color">
+        <div className="color" style={{  }}>
          <h3>{category}</h3>
          <h3>{location}</h3>
          <a href="/">View</a>
@@ -97,7 +78,9 @@ const Wrapper = styled.div`
  display: grid;
  align-items: center;
  justify-content: center;
- grid-gap: 3rem;
+ width: 100%;
+ height: 100%;
+ grid-gap: 1rem;
  /* In Size Order */
  .show-modal {
   visibility: visible;
@@ -138,8 +121,11 @@ const Wrapper = styled.div`
    height: 100%;
    border-radius: 20px;
    overflow: hidden;
-   display: grid;
+
+   display: flex;
    align-items: center;
+   justify-content: center;
+
   }
   .card:before {
    content: '';
@@ -160,28 +146,11 @@ const Wrapper = styled.div`
    font-style: italic;
    background: blue;
   }
-  .card .imgBx {
-   top: 50%;
-   transform: translateY(-50%);
-   z-index: 10000;
-   width: 100%;
-   height: 220px;
-   transition: 0.5s;
-  }
-  .card:hover .imgBx {
-   transform: translateY(0%);
-  }
-  .card .imgBx img {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 270px;
-  }
-  .card .contentBx {
+
+  .contentBx {
    position: absolute;
-   width: 28vh;
-   height: 250px;
+        height: 30vh;
+        width: 30vh;
    margin-bottom: 2rem;
    text-align: center;
    transition: 1s;
@@ -191,6 +160,9 @@ const Wrapper = styled.div`
    font-family: roboto;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    overflow-wrap: break-word;
+   display: grid;
+   justify-content: center;
+   align-items: center;
   }
   .card:hover .contentBx {
    height: 100%;
@@ -215,7 +187,7 @@ const Wrapper = styled.div`
   .color {
    margin-top: 1rem;
   }
-  .card .contentBx .size,
+  .size,
   .container .card .contentBx .color {
    display: flex;
    justify-content: center;
@@ -292,25 +264,16 @@ const Wrapper = styled.div`
    height: 45vh;
    width: 40vh;
   }
-
-  .card .contentBx {
-   margin-left: 3rem;
-  }
  }
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
   padding: 3rem;
 
   .container {
-   height: 50vh;
-   width: 45vh;
+   height: 55vh;
+   width: 50vh;
   }
-  .search-input {
-   width: 100%;
-  }
-  .card .contentBx {
-   margin-left: 3rem;
-  }
+
   .modal-container {
    width: 100%;
    height: 100%;
@@ -319,12 +282,10 @@ const Wrapper = styled.div`
  /* Medium devices *landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
   .container {
-   height: 55vh;
-   width: 50vh;
+   height: 50vh;
+   width: 40vh;
   }
-  .card .contentBx {
-   margin-left: 3rem;
-  }
+
   .modal-container {
    width: 75vh;
    height: 75vh;
@@ -334,15 +295,9 @@ const Wrapper = styled.div`
  @media only screen and (min-width: 992px) {
   .container {
    height: 55vh;
-   width: 50vh;
-   margin-right: 24rem;
+   width: 45vh;
   }
-  .search-input {
-   width: 28rem;
-  }
-  .card .contentBx {
-   margin-left: 7rem;
-  }
+
   .modal-container {
    width: 75vh;
    height: 75vh;
@@ -351,15 +306,13 @@ const Wrapper = styled.div`
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
   .container {
-   height: 65vh;
-   width: 60vh;
-   margin-right: 8rem;
+   height: 55vh;
+   width: 50vh;
   }
   .modal-container {
    width: 75vh;
    height: 75vh;
   }
-  margin-left: 12rem;
  }
 `
 export default Hero
