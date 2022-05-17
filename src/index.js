@@ -16,11 +16,11 @@ ReactDOM.render(
  >
   <UserProvider>
    <SideProvider>
-    <ModalProvider>
-     <CartProvider>
+    <CartProvider>
+     <ModalProvider>
       <App />
-     </CartProvider>
-    </ModalProvider>
+     </ModalProvider>
+    </CartProvider>
    </SideProvider>
   </UserProvider>
  </Auth0Provider>,
