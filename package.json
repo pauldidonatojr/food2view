@@ -11,8 +11,9 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "airtable-node": "^0.1.20",
+    "airtable": "^0.11.4",
     "axios": "^0.26.1",
+    "bootstrap-4-react": "^0.0.59",
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.1",
@@ -28,10 +29,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI= react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "netlify": "ntl dev"
+    "netlify": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
@@ -50,8 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "netlify": "^11.0.1"
   }
 }

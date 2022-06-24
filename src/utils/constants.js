@@ -1,11 +1,11 @@
 import React from 'react'
-import { FaBehance, FaFacebook, FaYoutube, FaTwitter, FaGoogle} from 'react-icons/fa'
+import { FaFacebook, FaYoutube, FaTwitter, FaGoogle } from 'react-icons/fa'
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
 export const links = [
-{
+ {
   id: 1,
   text: 'About',
-  url: '/articles',
+  url: '/about',
  },
  {
   id: 2,
@@ -16,6 +16,11 @@ export const links = [
   id: 3,
   text: 'contact',
   url: '/contact',
+ },
+ {
+  id: 4,
+  text: 'add',
+  url: '/add',
  },
 ]
 

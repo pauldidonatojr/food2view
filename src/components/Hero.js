@@ -4,22 +4,24 @@ import { FaCamera } from 'react-icons/fa'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Airtable from 'airtable'
 import { Card, Input } from 'semantic-ui-react'
 // import { QrReader } from 'react-qr-reader'
-const url = 'https://temp-server.netlify.app/api/3-airtable'
+const base = new Airtable({ apiKey: 'keykga8bEenepruwK' }).base(
+ 'app1LVKkET0KmS2gL'
+)
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
  const [searchInput, setSearchInput] = useState('')
- const fetchData = async () => {
-  try {
-   const { data } = await axios.get(url)
-   setProducts(data)
-  } catch (error) {}
- }
 
  useEffect(() => {
-  fetchData()
+  base('restaurants')
+   .select({ view: 'Grid view' })
+   .eachPage((records, fetchNextPage) => {
+    setProducts(records)
+    fetchNextPage()
+   })
  }, [])
 
  return (
@@ -31,7 +33,6 @@ const Hero = () => {
      placeholder="search"
      className="search-input"
      value="search"
-
     />
    </div>
 
@@ -45,22 +46,22 @@ const Hero = () => {
     </div>
    </div>
    {products.map((product) => {
-    const { id, name, url, category, location } = product
+    const { id, name, category, image, location } = product
     return (
      <div className="container" key={id}>
       <div
        className="card"
        style={{
-        background: `url(${url}) no-repeat center center`,
+        background: `url(${image}) no-repeat center center`,
         backgroundSize: `cover`,
        }}
       >
-       <div className="contentBx" >
+       <div className="contentBx">
         <div className="content-title" style={{ padding: '0.25rem' }}>
          <p>{name}</p>
         </div>
 
-        <div className="color" >
+        <div className="color">
          <p>{category}</p>
          <p>{location}</p>
          <a href="/">View</a>
@@ -336,7 +337,6 @@ const Wrapper = styled.div`
   .container .contentBx {
    height: 40vh;
    width: 40vh;
-
   }
   .card .contentBx p {
    font-size: 2.4rem;

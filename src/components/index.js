@@ -6,4 +6,13 @@ import PageHero from './PageHero.js'
 import Sidebar from './Sidebar'
 import Footer from './Footer.js'
 
-export { Navbar, CartButton, Hero, Geolocation, PageHero, Sidebar, Footer }
+export {
+
+ Navbar,
+ CartButton,
+ Hero,
+ Geolocation,
+ PageHero,
+ Sidebar,
+ Footer,
+}
