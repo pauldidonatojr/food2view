@@ -4,24 +4,24 @@ import { FaCamera } from 'react-icons/fa'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Airtable from 'airtable'
-import { Card, Input } from 'semantic-ui-react'
+import { api_url } from '../utils/constants'
 // import { QrReader } from 'react-qr-reader'
-const base = new Airtable({ apiKey: 'keykga8bEenepruwK' }).base(
- 'app1LVKkET0KmS2gL'
-)
+
+const api = api_url
 const Hero = () => {
  const [products, setProducts] = useState([])
  const { isModalOpen, closeModal } = useModalContext()
  const [searchInput, setSearchInput] = useState('')
 
+ const fetchData = async () => {
+  const response = await fetch(api)
+  const data = await response.json()
+  console.log(data)
+  setProducts(data)
+ }
+
  useEffect(() => {
-  base('restaurants')
-   .select({ view: 'Grid view' })
-   .eachPage((records, fetchNextPage) => {
-    setProducts(records)
-    fetchNextPage()
-   })
+  fetchData()
  }, [])
 
  return (
@@ -46,13 +46,13 @@ const Hero = () => {
     </div>
    </div>
    {products.map((product) => {
-    const { id, name, category, image, location } = product
+    const { category, id, location, name, url } = product
     return (
      <div className="container" key={id}>
       <div
        className="card"
        style={{
-        background: `url(${image}) no-repeat center center`,
+        background: `url(${url}) no-repeat center center`,
         backgroundSize: `cover`,
        }}
       >
