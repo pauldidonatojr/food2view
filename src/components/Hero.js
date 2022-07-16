@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="color">
          <p>{category}</p>
          <p>{location}</p>
-         <a href="/">View</a>
+         <a href="/">View 2</a>
         </div>
        </div>
       </div>
