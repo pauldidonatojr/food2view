@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="color">
          <p>{category}</p>
          <p>{location}</p>
-         <a href="/">View 2</a>
+         <a href="/">View</a>
         </div>
        </div>
       </div>
@@ -263,18 +263,23 @@ const Wrapper = styled.div`
  @media only screen and (max-width: 600px) {
   padding: 2rem;
   .container {
-   height: 45vh;
-   width: 40vh;
+   height: 55vh;
+   width: 50vh;
   }
   .container .contentBx {
-   height: 30vh;
+   height: 40vh;
    width: 30vh;
   }
   .card .contentBx p {
-   font-size: 2.2rem;
+   font-size: 1.0rem;
   }
   .contentBx .color p {
-   font-size: 1.4rem;
+   font-size: 1.0rem;
+  }
+  .content-title {
+   p {
+    font-size: 0.02rem;
+   }
   }
  }
  /* Small devices (portrait tablets and large phones, 600px and up) */
