@@ -264,17 +264,17 @@ const Wrapper = styled.div`
   padding: 2rem;
   .container {
    height: 55vh;
-   width: 50vh;
+   width: 45vh;
   }
   .container .contentBx {
    height: 40vh;
    width: 30vh;
   }
   .card .contentBx p {
-   font-size: 1.0rem;
+   font-size: 1rem;
   }
   .contentBx .color p {
-   font-size: 1.0rem;
+   font-size: 1rem;
   }
   .content-title {
    p {
