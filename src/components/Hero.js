@@ -264,7 +264,7 @@ const Wrapper = styled.div`
   padding: 2rem;
   .container {
    height: 55vh;
-   width: 45vh;
+   width: 40vh;
   }
   .container .contentBx {
    height: 40vh;
