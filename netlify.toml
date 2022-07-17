@@ -1,2 +1,11 @@
 [build]
 functinos = "./functions"
+
+[[plugins]]
+package = "@algolia/netlify-plugin-crawler"
+  [plugins.inputs]
+  branches = ['master', 'develop', 'feat/add-algolia']
+  disabled = true
+  pathPrefix = "/blog"
+  customDomain = "https://food2view.com/"
+  renderJavaScript = true

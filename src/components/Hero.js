@@ -269,12 +269,13 @@ const Wrapper = styled.div`
   .container .contentBx {
    height: 40vh;
    width: 30vh;
+   background-color: blue;
   }
   .card .contentBx p {
-   font-size: 1rem;
+   font-size: 1.0rem;
   }
   .contentBx .color p {
-   font-size: 1rem;
+   font-size: 1.0rem;
   }
   .content-title {
    p {
