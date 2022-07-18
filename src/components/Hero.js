@@ -288,12 +288,12 @@ const Wrapper = styled.div`
    }
   }
 
-  /* img {
+  img {
    width: 240px;
    display: block;
    object-fit: cover;
    height: 125px;
-  } */
+  }
 
   .card .contentBx a {
   }
