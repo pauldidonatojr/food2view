@@ -289,7 +289,7 @@ const Wrapper = styled.div`
   }
 
   img {
-   width: 200px;
+   width: 240px;
    display: block;
    object-fit: cover;
    height: 125px;
@@ -322,7 +322,7 @@ const Wrapper = styled.div`
   }
   .sectionBX {
    height: 20vh;
-   width: 280px;
+   width: 240px;
   }
   .container .contentBx {
    height: 22vh;
