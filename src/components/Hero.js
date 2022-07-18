@@ -288,12 +288,12 @@ const Wrapper = styled.div`
    }
   }
 
-  img {
-   width: 260px;
+  /* img {
+   width: 240px;
    display: block;
    object-fit: cover;
    height: 125px;
-  }
+  } */
 
   .card .contentBx a {
   }
@@ -322,7 +322,7 @@ const Wrapper = styled.div`
   }
   .sectionBX {
    height: 20vh;
-   width: 260px;
+   width: 240px;
   }
   .container .contentBx {
    height: 22vh;
