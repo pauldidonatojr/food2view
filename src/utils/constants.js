@@ -1,16 +1,16 @@
 import React from 'react'
 import { FaFacebook, FaYoutube, FaTwitter, FaGoogle } from 'react-icons/fa'
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
-export const links = [
+export const info = [
  {
   id: 1,
   text: 'About',
-  url: '/about',
+  url: '/information',
  },
  {
   id: 2,
   text: 'media',
-  url: '/videos',
+  url: '/menu',
  },
  {
   id: 3,
@@ -20,10 +20,31 @@ export const links = [
  {
   id: 4,
   text: 'add',
-  url: '/add',
+  url: '/reviews',
  },
 ]
-
+export const links = [
+ {
+  id: 1,
+  url: '/',
+  text: 'information',
+ },
+ {
+  id: 2,
+  url: '/about',
+  text: 'menu',
+ },
+ {
+  id: 3,
+  url: '/projects',
+  text: 'contact',
+ },
+ {
+  id: 4,
+  url: '/contact',
+  text: 'reviews',
+ },
+]
 export const services = [
  {
   id: 1,

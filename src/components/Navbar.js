@@ -5,16 +5,9 @@ import { Link } from 'react-router-dom'
 import { links, social } from '../utils/constants'
 import { useSideContext } from '../context/sidebar_context'
 import { useModalContext } from '../context/modal_context'
-const getStorageTheme = () => {
- let theme = 'light-theme'
- if (localStorage.getItem('theme')) {
-  theme = localStorage.getItem('theme')
- }
- return theme
-}
+
 
 export default function Navbar() {
- const [theme, setTheme] = useState(getStorageTheme())
  const { openModal } = useModalContext()
 
  const { openSidebar } = useSideContext()

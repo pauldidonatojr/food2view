@@ -4,7 +4,7 @@ import { FaCamera } from 'react-icons/fa'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { api_url } from '../utils/constants'
+import { api_url, links } from '../utils/constants'
 // import { QrReader } from 'react-qr-reader'
 
 const api = api_url
@@ -49,22 +49,30 @@ const Hero = () => {
     const { category, id, location, name, url } = product
     return (
      <div className="container" key={id}>
-      <div
-       className="card"
-       style={{
-        background: `url(${url}) no-repeat center center`,
-        backgroundSize: `cover`,
-       }}
-      >
+      <div className="card">
        <div className="contentBx">
-        <div className="content-title" style={{ padding: '0.25rem' }}>
-         <p>{name}</p>
-        </div>
+        <div className="sectionBX">
+         <img src={url} className="logo" alt="logo" />
+         <div className="content-title" style={{ padding: '0.25rem' }}>
+          {/* <p>{name}</p> */}
 
-        <div className="color">
-         <p>{category}</p>
-         <p>{location}</p>
-         <a href="/">View</a>
+          {/*
+          <ul className="linksBx">
+           {links.map((link) => {
+            const { id, text, url } = link
+            return (
+             <li key={id}>
+              <Link to={url}> {text} </Link>
+             </li>
+            )
+           })}
+          </ul> */}
+         </div>
+
+         <div className="color">
+          {/* <p>{category}</p> */}
+          <p>{location}</p>
+         </div>
         </div>
        </div>
       </div>
@@ -83,6 +91,7 @@ const Wrapper = styled.div`
  height: 100%;
  grid-gap: 3rem;
  /* In Size Order */
+
  .show-modal {
   visibility: visible;
   z-index: 100000000;
@@ -122,7 +131,6 @@ const Wrapper = styled.div`
    height: 100%;
    border-radius: 20px;
    overflow: hidden;
-
    display: flex;
    align-items: center;
    justify-content: center;
@@ -144,33 +152,28 @@ const Wrapper = styled.div`
    /* font-size: 12em;
    font-weight: 800; */
    font-style: italic;
-   background: blue;
   }
 
   .contentBx {
    position: absolute;
-   height: 30vh;
-   width: 30vh;
-   margin-bottom: 2rem;
+
    text-align: center;
    transition: 1s;
    z-index: 10;
-   background-color: var(--mainBlack);
    border-radius: 10%;
    font-family: roboto;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
    overflow-wrap: break-word;
    display: grid;
    justify-content: center;
    align-items: center;
   }
   .card:hover .contentBx {
-   height: 100%;
    display: grid;
    grid-gap: 1.5rem;
-   width: 22vh;
+   /* width: 22vh; */
 
-   border-radius: 0;
+   border-radius: 2%;
    margin-bottom: 0rem;
    margin-left: 0rem;
   }
@@ -200,11 +203,11 @@ const Wrapper = styled.div`
    visibility: visible;
    transition-delay: 0.5s;
   }
-  .card:hover .contentBx .color {
+  /* .card:hover .contentBx .color {
    opacity: 1;
    visibility: visible;
    transition-delay: 0.6s;
-  }
+  } */
   .card .contentBx .size h3,
   .container .card .contentBx .color h3 {
    color: white;
@@ -235,17 +238,16 @@ const Wrapper = styled.div`
 
   .card .contentBx a {
    display: inline-block;
-   padding: 10px 20px;
-   background: #fff;
+   padding: 2.5px 10px;
+   background-color: var(--mainBlack);
    border-radius: 4px;
    margin-top: 10px;
    text-decoration: none;
    font-weight: 600;
-   color: #111;
+   color: white;
    opacity: 0;
    transform: translateY(50px);
    transition: 0.5s;
-   margin-top: 0;
   }
   .card:hover .contentBx a {
    opacity: 1;
@@ -253,123 +255,488 @@ const Wrapper = styled.div`
    transition-delay: 0.75s;
   }
  }
- .card .contentBx p {
+ /* .card .contentBx p {
   font-size: 2rem;
  }
  .contentBx .color p {
   font-size: 1.5rem;
- }
+ } */
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
   padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+
+  .linksBx {
+   display: flex;
+   justify-content: center;
+   li {
+    margin: 0 0.5rem;
+   }
+   a {
+    color: var(--clr-grey-3);
+    font-size: 0.65rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    padding: 0.85rem;
+    &:hover {
+     border-bottom: 2px solid var(--clr-primary-7);
+    }
+   }
+  }
+
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 125px;
+  }
+
+  .card .contentBx a {
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
   .container {
-   height: 55vh;
-   width: 40vh;
+   height: 10rem;
+   width: 50vh;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .sectionBX {
+   height: 20vh;
+   width: 280px;
   }
   .container .contentBx {
-   height: 40vh;
-   width: 30vh;
-   background-color: blue;
+   height: 22vh;
+   width: 25vh;
+  }
+  .container:hover {
+   height: 35rem;
+
+  }
+  .card:hover .contentBx {
+   height: 50rem;
+   display: grid;
+
+   width: 100rem;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
+   .sectionBX {
+    height: 90vh;
+   }
+   .color {
+    background-color: blueviolet;
+    display: grid;
+
+    padding: 1rem;
+    height: 24rem;
+    width: 100%;
+   }
+   .content-title {
+    background-color: var(--mainBlack);
+    height: 6vh;
+    ul {
+     color: white;
+     display: flex;
+     font-size: 1.2rem;
+     justify-content: space-around;
+    }
+    p {
+     font-size: 0.02rem;
+    }
+   }
   }
   .card .contentBx p {
-   font-size: 1.0rem;
+   font-size: 0.8rem;
   }
   .contentBx .color p {
-   font-size: 1.0rem;
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 20vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+  }
+  /* .content-title {
+   background-color: var(--mainBlack);
+   height: 6vh;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
+   p {
+    font-size: 0.02rem;
+   }
+  } */
+ }
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+  padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 100px;
+  }
+
+  .card .contentBx a {
+   background-color: blue;
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
+  .container {
+   height: 45vh;
+   width: 50vh;
+  }
+  .sectionBX {
+   height: 40vh;
+   width: 280px;
+   background-color: var(--mainBlack);
+   margin-bottom: 5rem;
+  }
+  .container .contentBx {
+   height: 15vh;
+   width: 44vh;
+   background-color: green;
+  }
+  .card:hover .contentBx {
+   height: 50vh;
+   display: grid;
+   background-color: white;
+   width: 50vh;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
+  }
+  .card .contentBx p {
+   font-size: 0.8rem;
+  }
+  .contentBx .color p {
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 10vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+   margin-bottom: 3rem;
   }
   .content-title {
+   grid-row: 1/2;
+   grid-column: 2/3;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
    p {
     font-size: 0.02rem;
    }
   }
  }
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
-  padding: 3rem;
-
-  .container {
-   height: 50vh;
-   width: 45vh;
-  }
-
-  .modal-container {
-   width: 100%;
-   height: 100%;
-  }
-  .container .contentBx {
-   height: 32vh;
-   width: 32vh;
-  }
-  .card .contentBx p {
-   font-size: 2.5rem;
-  }
-  .contentBx .color p {
-   font-size: 1.5rem;
-  }
- }
  /* Medium devices *landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
-  .container {
-   height: 53vh;
-   width: 48vh;
+  padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 100px;
   }
 
-  .modal-container {
-   width: 75vh;
-   height: 75vh;
+  .card .contentBx a {
+   background-color: blue;
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
+  .container {
+   height: 45vh;
+   width: 50vh;
+  }
+  .sectionBX {
+   display: grid;
+   height: 40vh;
+   width: 280px;
+   background-color: var(--mainBlack);
+   margin-bottom: 5rem;
   }
   .container .contentBx {
-   height: 35vh;
-   width: 35vh;
+   height: 15vh;
+   width: 44vh;
+  }
+  .card:hover .contentBx {
+   height: 50vh;
+   display: grid;
+   background-color: white;
+   width: 50vh;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
   }
   .card .contentBx p {
-   font-size: 2.3rem;
+   font-size: 0.8rem;
   }
   .contentBx .color p {
-   font-size: 1.5rem;
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 10vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+   margin-bottom: 3rem;
+  }
+  .content-title {
+   grid-row: 1/2;
+   grid-column: 2/3;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
+   p {
+    font-size: 0.02rem;
+   }
   }
  }
  /* Large devices (lapto/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
-  .container {
-   height: 58vh;
-   width: 52vh;
+  padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 100px;
   }
 
-  .modal-container {
-   width: 75vh;
-   height: 75vh;
+  .card .contentBx a {
+   background-color: blue;
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
+  .container {
+   height: 45vh;
+   width: 50vh;
+  }
+  .sectionBX {
+   height: 40vh;
+   width: 280px;
+   background-color: var(--mainBlack);
+   margin-bottom: 5rem;
   }
   .container .contentBx {
-   height: 40vh;
-   width: 40vh;
+   height: 15vh;
+   width: 44vh;
+   background-color: green;
+  }
+  .card:hover .contentBx {
+   height: 50vh;
+   display: grid;
+   background-color: white;
+   width: 50vh;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
   }
   .card .contentBx p {
-   font-size: 2.4rem;
+   font-size: 0.8rem;
   }
   .contentBx .color p {
-   font-size: 1.6rem;
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 10vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+   margin-bottom: 3rem;
+  }
+  .content-title {
+   grid-row: 1/2;
+   grid-column: 2/3;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
+   p {
+    font-size: 0.02rem;
+   }
   }
  }
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
-  .container {
-   height: 62vh;
-   width: 55vh;
+  padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 100px;
   }
-  .modal-container {
-   width: 75vh;
-   height: 75vh;
+
+  .card .contentBx a {
+   background-color: blue;
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
+  .container {
+   height: 45vh;
+   width: 50vh;
+  }
+  .sectionBX {
+   height: 40vh;
+   width: 280px;
+   background-color: var(--mainBlack);
+   margin-bottom: 5rem;
   }
   .container .contentBx {
-   height: 40vh;
-   width: 40vh;
+   height: 15vh;
+   width: 44vh;
+   background-color: green;
+  }
+  .card:hover .contentBx {
+   height: 50vh;
+   display: grid;
+   background-color: white;
+   width: 50vh;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
   }
   .card .contentBx p {
-   font-size: 2.7rem;
+   font-size: 0.8rem;
   }
   .contentBx .color p {
-   font-size: 1.6rem;
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 10vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+   margin-bottom: 3rem;
+  }
+  .content-title {
+   grid-row: 1/2;
+   grid-column: 2/3;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
+   p {
+    font-size: 0.02rem;
+   }
   }
  }
 `
