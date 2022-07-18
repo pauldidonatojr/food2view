@@ -289,7 +289,7 @@ const Wrapper = styled.div`
   }
 
   img {
-   width: 280px;
+   width: 200px;
    display: block;
    object-fit: cover;
    height: 125px;
