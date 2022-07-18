@@ -289,7 +289,7 @@ const Wrapper = styled.div`
   }
 
   img {
-   width: 240px;
+   width: 260px;
    display: block;
    object-fit: cover;
    height: 125px;
@@ -322,7 +322,7 @@ const Wrapper = styled.div`
   }
   .sectionBX {
    height: 20vh;
-   width: 240px;
+   width: 260px;
   }
   .container .contentBx {
    height: 22vh;
@@ -332,7 +332,7 @@ const Wrapper = styled.div`
    height: 35rem;
   }
   .card:hover .contentBx {
-   height: 50rem;
+   height: 60rem;
    display: grid;
 
    width: 100rem;
