@@ -317,7 +317,7 @@ const Wrapper = styled.div`
   }
   .container {
    height: 10rem;
-   width: 50vh;
+   width: 30vh;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .sectionBX {
