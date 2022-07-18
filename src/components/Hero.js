@@ -390,6 +390,136 @@ const Wrapper = styled.div`
    }
   } */
  }
+
+ @media (min-width: 576px) {
+  padding: 2rem;
+  /* .card:before {
+   .color {
+    display: none;
+   }
+  } */
+
+  .linksBx {
+   display: flex;
+   justify-content: center;
+   li {
+    margin: 0 0.5rem;
+   }
+   a {
+    color: var(--clr-grey-3);
+    font-size: 0.65rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    padding: 0.85rem;
+    &:hover {
+     border-bottom: 2px solid var(--clr-primary-7);
+    }
+   }
+  }
+
+  img {
+   width: 280px;
+   display: block;
+   object-fit: cover;
+   height: 125px;
+  }
+
+  .card .contentBx a {
+  }
+
+  .card .contentBx .sectionBX .color {
+   visibility: hidden;
+  }
+  .card:hover .contentBx .color {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0.6s;
+   background-color: var(--mainBlack);
+  }
+  .card:after {
+   position: absolute;
+   top: 20%;
+   left: -20%;
+   /* font-size: 12em;
+   font-weight: 800; */
+   font-style: italic;
+  }
+  .container {
+   height: 10rem;
+   width: 50vh;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .sectionBX {
+   height: 20vh;
+   width: 280px;
+  }
+  .container .contentBx {
+   height: 22vh;
+   width: 25vh;
+  }
+  .container:hover {
+   height: 35rem;
+  }
+  .card:hover .contentBx {
+   height: 50rem;
+   display: grid;
+
+   width: 100rem;
+   border-radius: 2%;
+   margin-bottom: 0rem;
+   margin-left: 0rem;
+   .sectionBX {
+    height: 90vh;
+   }
+   .color {
+    background-color: blueviolet;
+    display: grid;
+
+    padding: 1rem;
+    height: 24rem;
+    width: 100%;
+   }
+   .content-title {
+    background-color: var(--mainBlack);
+    height: 6vh;
+    ul {
+     color: white;
+     display: flex;
+     font-size: 1.2rem;
+     justify-content: space-around;
+    }
+    p {
+     font-size: 0.02rem;
+    }
+   }
+  }
+  .card .contentBx p {
+   font-size: 0.8rem;
+  }
+  .contentBx .color p {
+   font-size: 0.75rem;
+  }
+  .contentBx .color {
+   height: 20vh;
+   width: 100%;
+   grid-row: 2/3;
+   grid-column: 2/3;
+  }
+  /* .content-title {
+   background-color: var(--mainBlack);
+   height: 6vh;
+   ul {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+   }
+   p {
+    font-size: 0.02rem;
+   }
+  } */
+ }
+
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
   padding: 2rem;
