@@ -329,7 +329,7 @@ const Wrapper = styled.div`
    width: 25vh;
   }
   .container:hover {
-   height: 35rem;
+   height: 38rem;
   }
   .card:hover .contentBx {
    height: 60rem;
