@@ -88,8 +88,8 @@ const Wrapper = styled.div`
  align-items: center;
  justify-content: center;
  width: 100%;
- height: 100%;
- grid-gap: 3rem;
+ height: 55rem;
+ grid-gap: 5rem;
  /* In Size Order */
 
  .show-modal {
@@ -269,7 +269,7 @@ const Wrapper = styled.div`
     display: none;
    }
   } */
-
+  margin-bottom: 8rem;
   .linksBx {
    display: flex;
    justify-content: center;
@@ -329,7 +329,7 @@ const Wrapper = styled.div`
    width: 25vh;
   }
   .container:hover {
-   height: 38rem;
+   height: 44rem;
   }
   .card:hover .contentBx {
    height: 60rem;
